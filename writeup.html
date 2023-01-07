@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Write Up</title>
+    <style>
+      p{
+        font-size: 1.5em;
+      }
+      a{
+        font-size: 1.4em;
+      }
+      h1,h2{
+        background-color: lightblue;
+      }
+
+    </style>
+</head>
+<body>
+    <h1 id="h_1">Group Websocket</h1>
+    <p>Group members: Jessica Lee(jlee514), Ivan Barraza-Duran(ibarraz5), Daryl Susilo(dsusilo), Hunter Borkowski(hborkows)</p>
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#h_1">Title/Home</a>
+        </li>
+        <li><a href="#h_2">Learning outcomes</a>
+        </li>
+        <li><a  href="#h_3">Step-by-step learning activities</a></li>
+        <li><a  href="#h_4">Summary of the History</a></li>
+        <li><a  href="#h_5">Analyses of Websockets</a></li>
+        <li><a  href="#h_6">Implementation of Websockets in Our Demo</a></li>
+        <li><a  href="#h_7">Youtube Videos</a></li>
+        <li><a  href="#h_8">Final Questions</a></li>
+        <li><a  href="#h_9">Resource References</a></li>
+        <li><a  href="#h_10">Resource List</a></li>
+      </ol>
+
+      <h2 id="h_2">Learning outcomes: </h2>
+      <p>
+        After completing this tutorial, the student will have a better understanding of what websockets are and see a demonstration
+        of them in use. The student will also be able to write a single page html site. The student will see what css, html 
+        and javascript are. The student will also learn how to implement an application that is able to run on their webrowser
+        using a local port. The students will also learn the basic idea of websockets and html. They will learn the history,
+        benefits, challenges, and implementation. The best way that a student will get the most out of this tutorial is by following
+        the step-step guide accurately. Make sure that you are watching the video, reading all of this webpage's content, and taking 
+        the quiz. All of the quizzes answers can be found reading the material provided to you in this webpage. It is also important
+        that the student actually takes the time to write their notes and please look up anywords you are unfamiliar with that
+        were not explained during this tutorial.
+      </p>
+
+      <h2 id="h_3">Step-by-step learning activities:</h2>
+      <ol>
+        <li><p>Watch our Code Walkthrough video:</p> 
+          <a href="">Code Walkthrough</a>
+        </li>
+        <li><p>Read this webpage in its entirety</p> </li>
+        <li><p>Take notes, any ideas you had and something new you learned</p> </li>
+        <li><p>Access our github repository and learn from the code</p> </li>
+        <a href="https://github.com/ibarraz5/advanced-project">Github Repository</a>
+        <li><p>Look up words you don't recognize from the code and add their definitions to your notes</p> </li>
+        <li><p>Take this short quiz on websockets: </p> </li> 
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-kneBGB80pWPtFSFhqXwbNMw6ECD60yMC-ZSEnx0X9qUJ_g/viewform?usp=sf_link">
+          Websockets Quiz
+        </a>
+        <li><p>Answer the following questions:</p> <a href="#h_8">Questions</a></li>
+        <li><p>Finally, try it yourself. Implement an html page and run the Websocket program.</p> </li>
+
+      </ol>
+      <h2 id="h_4">Summary of the History</h2>
+      <p>	The Web was first created using HTTP protocol. Back then, there were only 4 steps in the interaction 
+        between the user and the web. It included, opening the connection, sending a request, receiving a 
+        response and closing the connection. The most notable background communication feature was first 
+        seen in 1999 with the Microsoft XMLHTTP. This object made it possible to send a request to a server and 
+        receive a response without having to reload the page. Allowing the user’s experience to be 
+        uninterrupted. However, the high frequency request-response cycles led to more problems as the cycles 
+        required new connections all the time.</p>
+        <p>XMLHTTP became XMLHttpRequest as it gets adopted by other 
+          browsers than Internet Explorer and was used to solve the request-response cycle problem. 
+          Developers decided to modify and test different techniques with XMLHttpRequest that would recreate real-time back and forth 
+          communication of the web and server. Long-polling was the most popular of these techniques involving 
+          opening an XMLHttpRequest connection to the server and only closing the connection once 
+          communication is no longer needed. However, even the Long Polling technique was not enough as it 
+          still used the same setup and frequent request-response cycles similar to XMLHttpRequest as it is trying 
+          to repurpose something it wasn’t designed to do. A solution with proper TCP/IP style capabilities in a 
+          web environment was needed. </p> 
+          <p>In 2008, Michael Carter and Ian Hickson created a new standard for web 
+          communication through the collaboration on IRC and M3C mailing lists called WebSockets. The 
+          communication made by WebSockets begins with a handshake between server and client over TCP. 
+          Afterwards, the server and client is able to exchange data. Google Chrome 4 was the first to fully 
+          support WebSockets in 2010, then others followed along. A year later, IETF website published RFC 6455-
+          The WebSocket Protocol.</p>
+      <p>Websockets were first called a TCPConnection since they were TCP based socket APIs. A websocket is
+        a protocol for computer communication that has the ability to provide a complete duplex communication channel.
+        A duplex communication system is one that allows for communication in both directions and allows for such to happen
+        simultaneously.
+        What also makes this protocol different is that it utilizes a single TCP connection to communicate. The webocket protocol
+        is different from the HTTP protocol. However they are also similar in the aspect of layers because both of these protocols
+        can be found at layer 7 and they do work with the TCP that is found at layer 4. These layers that are mentioned are part of
+        the OSI (Open systems interconnection) model. This model describes a total of 7 levers which are the Application, Presentation,
+        Session, Transport, Network, Data link and Physical layers. So the websocket and HTTP protocols are part of the application
+        layer and the TCP is part of the transport layer. 
+        The client is able to send a request to the server and the server sends a
+        handshake or confirmation. Websockets allow for server side push. This protocol also allows for an interaction between the client's
+        web browser/application and the web server. An advantage to using the websocket protocol over many other protocols is that it 
+        doesn't need a ton of overhead and data in order to work properly. In that sense, it is better than using a protocol like the 
+        HTTP polling protocol. The websocket is also better than others because it can easily send data between the server and client
+        in real time. This process was standardized by the design of the websocket itself. Since websockets are usually used in ports
+        443 and 80, it is simple to use it in environements that block certain elements using a firewall. It is also important to mention
+        that similar protocols to the websocket have been achieved in less formal ways. This means that the protocol wasn't formally documented
+        a group and the protocols weren't really standardized. Similar protocols to the websocket are the Comet application and 
+        the Adobe Flash Player. Both of these actually allow a two-way client and server communication. Before the websocket came about
+        developers would use comet channels through port 80 but the protocol was too complex to work with small data efficiently.
+        That is where the websocket comes in and provides an efficient protocol for small data programs. 
+        <p>
+        The webocket is not all that secure
+        but the websocket secure or wss is designed to be more secure. However, the wss is still not perfect. A regular websocket protocol
+        uses unencrypted connections while th wss protocol makes use of encrypted connections.
+         It is also supported by the web browser Google chrome,
+        Firefox, Microsoft edge, Internet Explorer, Safari and Opera.
+        Use socket.close() to close a websocket. The RFC standard released standard #6455 which says that the websocket was designedto work on
+        ports 443 and 80. It was also made to be of support to HTTP. 
+        A websocket can be used for social chatrooms, multiplayer games, team projects and 
+        other activities that involve a group. In this tutorial you will be see it implemented as a chatroom. The websocket protocol
+        was standardized by the IETF back in 2011. This protocol is actually different than the HTTP. The name of websocket was
+        first used by Ian Hickson and Michael Carter and in 2009 Google chrome was the first browser to support the protocol.
+        Then in 2010 the protocol was moved from the W3C to the WHATWG group. The WHATWG group is the Web HyperText application
+        Technology Working Group. It was also founded by people from Apple, Mozilla, Opera and others. It is important to remember
+        that not all of the web browsers out there actually support websockets. HTTP and websockets are similar in the sense that
+        both of them are communications protocols that are used for client and server communication. 
+        </p>  
+      </p>
+      <p>The HTTP protocol is actually 
+        only unidirectional, this means that the client send a request and the server sends a response. This is different from websockets
+        because here the communication is bidirectional. In HTTP protocol, the client sends a request, the request is then paired up
+        with the correlated response, and once the response is sent back to the client from the server the connection is actually closed.
+        So essentially what is happening with each HTTP request is that connection is getting re-established between the client and the
+        server. And every single time the server sends the response, the connection ends between the two. </p>
+      
+      <h2 id="h_5">Analyses of Websockets</h2>
+      <p>        The decision of whether to use websocket or HTTP connections can one way be determined by the differences between websocket and HTTP protocols. 
+        The HTTP protocol is a one-way client-server communication, or unidirectional. On the other hand, a WebSocket connection establishes a persistent two-way, 
+        or bidirectional, connection between the client and the server which consists of a handshake between the client and the server with the data transfer. 
+        As mentioned earlier, an HTTP connection will be closed right after a request/response is sent through the connection – this means that whenever the client 
+        and the server want to continue their previous conversation, they will need to repeatedly open and end the connection as well as keep track of the 
+        conversation state to maintain a “persistent” conversation. This can become a real hassle with lots of overheads just to maintain the same conversation 
+        between the client and the server.
+      </p>
+            <p>
+        On the other hand, one of the other negative aspects of using a WebSocket is that it isn't supported by all the web browsers and it does not support edge caching. When you choose to implement the WebSocket protocol for your application, you should
+         consider that the protocol lacks flexibility in terms of the application security implementation. The WebSocket protocol is not designed
+         for applications that require higher levels of security due to its nature of having persitent communications between the server and the clients. According to Bright Security, there are 8 major security vulnerabilities in the WebSocket protocol: DoS attacks, lack of client authentication, unencrypted TCP channels, input data attacks, data masking, authorization/authentication, tunneling and sniffing attacks. Since the protocol consumes resources to keep conversations alive, it is more susceptible to get be exhausted by a higher number of client server comminications during a DoS attack. Moreover, because the handshake process of the WebSocket protocol does not require client authentication from the server, the conversation can be attach by cross-site WebSocket hijacks and thus leads to input data attacks from cross-site scripting.          The good thing about websockets is that they are a real-time application.
+         This means that the data actually loads and is sent rather quickly across devices. The protocol has also been standardized by
+          the IETF(Internet Engineering Task Force) and the W3C(World Wide Web Consortium). Another advatange of using websocket protocol
+          is that it can be used for cross origin communication which is communication across different domains, schemes and ports. The 
+          protocol is also good about sending messages that aren't too heavy for the system to handle. 
+        </p>
+      <p>
+        We believe that WebSockets are best for an application that has multiple users. It doesn't make sense to implement it on an application 
+        that is for single users. They are especially helpful when it comes to applications that have server-side heavy logic 
+        and clients are just users that send requests. It is a protocol that is ideal for two-way communications and it sends 
+        and receives data faster than other protocols. It is also usable on many platforms like mobile, desktop, and web. 
+        There are some negative aspects to using websockets and one of them is that it isn't supported by all the web browsers.
+         It also doesn’t support support edge caching. If the application doesn’t really need communicating, the websocket protocol can 
+         actually make things more difficult. This may seem obvious but if you don't require a websocket protocol for your application,
+         don't implement it in your program. When you are choosing to use a websocket for your application, you should certainly
+         consider that the protocol is not as flexible as you think. The other thing about websockets is that they are not designed
+         with a high level of security. It won't really protect your clients or the server. It all really comes down to what you are
+         trying to send through the TCP layer. If the data is fairly small and you are trying to make it show up across multiple devices,
+         then a websocket protocol might be the right solution. The good thing about websockets is that they are a real-time application.
+         This means that the data actually loads and is sent rather quickly across devices. The protocol has also been standardized by
+          the IETF(Internet Engineering Task Force) and the W3C(World Wide Web Consortium). Another advatange of using websocket protocol
+          is that it can be used for cross origin communication which is communication across different domains, schemes and ports. The 
+          protocol is also good about sending messages that aren't too heavy for the system to handle. 
+        </p>
+        <p>With the ever growing need of faster technology and better user interaction, Websockets makes it easier 
+          for programmers to fulfill these needs. Without needing to create a new connection everytime a request is being 
+          made from the page to the server, the user is able to ineract with a page that is effecient and user friendly. 
+          This happens because the page is having a fluid back and forth communication with the server. Having to always 
+          establish a connection from the page to the server, will not only require work as a programmer but slower the 
+          processing speed of the page.</p>
+
+          <p>To conclude, the Websocket protocol can be efficient for smaller programs and applications. It works accurately when the application
+          has a server and client interaction. The communication between the server and client also has to be a two-way communication for 
+          this protocol to be ideal. The application would also ideally need to prioritize cross origin communication and also for
+          cross platform compatibility. The cross platform compatibility would need to be for web, desktops and mobile devices. Now
+          on the other hand, a problem that developers will face with the websocket protocol is that it is not a very secure protocol to use.
+          Since it is compatable with cross origins communications, this makes it so the data and user information is not securely stored.
+          If the application expereriences growth in users and the amount of data being processed, this will become a problem. 
+          The arrangemnt of the different types of networks will become too complex for the websocket protocol to handle. The protocol
+          is also not fit to handle the implementation of a firewall. The websocket protocol is also not very friendly with kernel configurations.
+          Additionally, when it comes to performing load tests on the application, the websocket protocol is most likely going to disappoint
+          the developers with how little it can handle. Therefore, if an application is implemented using a websocket protocol it is better
+          that the application stays small forever or the problems mentioned earlier will only get worse with more users and more data.
+        </p>
+
+      <h2 id="h_6">Implementation of Websockets</h2>
+      <p>        The way that we decided to implement the websocket protocol includes making an html
+        file that works as the user interface for our chatroom. We have created 2 separate folders, one for the client and the
+        other for the server.In the client folder we have the html file mentioned earlier and it has its own javascript file as well.
+        All we are doing is breaking up the elements using div tags and this way we can display different pages to the users.
+        The users first have to enter their name to enter the application. Once the user enters a name that is not a null value
+        and shows that the user is now live. It also adds the user to the users table and then allows the user to start chatting.
+        They can send their messages, see messages sent from other users, see when a user is typing and they can all clear the chat
+        at any point. In order for the application to run we must first check the local ports on the computer being used. In order to
+        do that we must first open the command prompt as the administrator by right clicking on it choose administrator. Then run the
+        command netstat -ab to see the local ports and identifying which of the following ports are open to use for the application.
+        We determined that the best port to use for our websocket application was port 5040. </p>
+      <p>The ports that say LISTENING are open
+        for use. Then once the application files are finished we shall open a terminal under the folder that the project is saved under.
+        In this case the command to get the cd SER421/Advanced Project/server/. It is very important that the terminal is open under
+        the folder named server. Also, the best IDE or Integrated development environement, is Visual Studio Code. Once again when you
+        are in the server folder under the terminal, install the package.json file and websocket. Run the command npm init -y 
+        because this will install the json file. The next command to run is npm install ws and this will install the websocket.
+        The next command to run is npm install express. And the last thing to install is the command nodemon install. Once everything
+        is installed we have to run the server first by running the cd server/ command and get back to the server folder. Then run the 
+        command nodemon index.js. This runs the server so now just open the port that the application is using with the http link.
+        For this application we are using port 5040 so the link is http://localhost:5040/. You can also open the link using an
+        incognito window to open the application as a new user. </p>
+        
+        <h2 id="h_7">Youtube video</h2>
+        <ul>
+          <li><a href="">Code Walkthrough video</a></li>
+        </ul>
+
+        <h2 id="h_8">Final questions</h2>
+        <p>In your notepad (online or physical), answer these questions</p>
+        <ol>
+          <li><p>What is a websocket?</p></li>
+          <li><p>What applications or programs can the websocket protocol be used for?</p></li>
+          <li><p>The websocket can be used for what kind of communication?</p></li>
+          <li><p>Which of the web browsers actually support the websocket protocol? Which of them don't?</p></li>
+          <li><p>For the implementation of our demo, which commands did we use to execute the build?</p></li>
+          <li><p>Is a websocket ideal for small or large programs?</p></li>
+          <li><p>What are the 3 platforms that websockets can be used for?</p></li>
+        </ol>
+
+      <h2 id="h_9">Resource References:</h2>
+      <ul>
+          <li><a href="https://en.wikipedia.org/wiki/WebSocket#:~:text=11%20External%20links-,History,the%20protocol%20known%20as%20WebSocket.">https://en.wikipedia.org/wiki/WebSocket#:~:text=11%20External%20links-,History,the%20protocol%20known%20as%20WebSocket.</a></li>
+          <li><a href="https://developers.google.com/speed/libraries">https://developers.google.com/speed/libraries</a></li>
+          <li><a href="https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/">https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/</a></li>
+          <li><a href="https://medium.com/@wk_26361/the-history-and-usage-of-websockets-f865eff0d624">https://medium.com/@wk_26361/the-history-and-usage-of-websockets-f865eff0d624</a></li>
+        	<li><a href="https://ably.com/topic/websockets">https://ably.com/topic/websockets</a></li>
+	        <li><a href="https://hackernoon.com/everything-you-ever-wanted-to-know-about-websockets-literally-a05f3643299">https://hackernoon.com/everything-you-ever-wanted-to-know-about-websockets-literally-a05f3643299</a></li>
+          <li><a href="https://blogs.windows.com/windowsdeveloper/2016/03/14/when-to-use-a-http-call-instead-of-a-websocket-or-http-2-0/#:~:text=WebSockets%20allow%20for%20a%20higher,each%20message%20sent%20and%20received.&text=When%20a%20client%20wants%20ongoing,are%20generally%20a%20good%20fit./">https://blogs.windows.com/windowsdeveloper/2016/03/14/when-to-use-a-http-call-instead-of-a-websocket-or-http-2-0/#:~:text=WebSockets%20allow%20for%20a%20higher,each%20message%20sent%20and%20received.&text=When%20a%20client%20wants%20ongoing,are%20generally%20a%20good%20fit./</a></li>
+          <li><a href="https://brightsec.com/blog/websocket-security-top-vulnerabilities/#most-common-vulnerabilities/">https://brightsec.com/blog/websocket-security-top-vulnerabilities/#most-common-vulnerabilities/</a></li>
+          <li><a href="https://web.dev/websockets-basics/">https://web.dev/websockets-basics/</a></li>
+        </ul>
+
+      <h2 id="h_10">Resource List:</h2>
+      <ul>
+          <p>Recommendations: If you are new to programming, we recommend that you first visit the w3schools link below.
+            This website has a lot of great documentation that you can read through. Remember HTML is the building blocks
+            for websites. Also, as you become more experienced, you
+            can reference back to the basics using this site. Another cool thing about this site is that it has a try it yourself button
+            that shows you what the code looks like when compared to the result. The next link below that, HTML playground, is better
+            for when you are more experienced and want to test a single webpage without having to download an IDE. An IDE is simply
+            the enviroment/application you will use to code your programs. Once you feel that you have a grip on HTML, we recommend you
+            go back to w3schools and read through the documentation for CSS and javascript. CSS is the what gives the website its
+            unique design and style. Javascript on the other hand is more of the logic and methods that make a website more complex.
+            Once you are comfortable with the readings on the w3schools site, you should try the Javascript, HTML, CSS playground. 
+            Lastly, we recommend you download Visual Studio Code as it is an easy to use application for coding and it has many different
+            extensions that make it easier for you. We want to thank you for taking the time to visit our tutorial and hope you learned
+            something. 
+          </p>
+          <li><a href="https://www.w3schools.com/">https://www.w3schools.com/</a></li>
+          <li><a href="https://playcode.io/html5">HTML playground!</a></li>
+          <li><a href="https://jsfiddle.net/">Javascript, HTML, CSS playground!</a></li>
+          <li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+          <li><a href="https://www.geeksforgeeks.org/">https://www.geeksforgeeks.org/</a></li>
+          <li><a href="https://www.tutorialspoint.com/">https://www.tutorialspoint.com/</a></li>
+          <li><a href="https://web.dev/">https://web.dev/</a></li>
+      </ul>
+
+ 
+</body>
+</html>
