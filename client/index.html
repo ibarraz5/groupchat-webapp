@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Advanced Project</title>
+    <title>Groupchat</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
     rel="stylesheet">
 
@@ -14,7 +14,6 @@
     body{
         margin-left: 20px;
         margin-top: 30px;      
-        background: url('dark.jpg');
      background-size: 100% 100%;
     }
     .chat-section{
@@ -44,17 +43,17 @@
 
     <div class="container-fluid">
         <div id="userRegistration">
-            <h2>Register With Name First!</h2>
+            <h2>Provide your name first.</h2>
             
             <div class="row">
                 <div class="col-md-11">
                     <div class="well">
-                        <p id="socketLive">WebSocket is Not Live! Refresh the page!</p>
-                        <label>Enter name:</label>
-                        <input type="text" class="form-control" placeholder="Enter name" id="registeredUser" 
+                        <p id="socketLive">Groupchat is not Live. Refresh page.</p>
+                        <label>Name:</label>
+                        <input type="text" class="form-control" placeholder="Type Your Name" id="registeredUser" 
                         onkeydown="if(event.keyCode == 13) {$('#regUserSubmitBtn').click();}"/>
                         <br>
-                        <button type="button" class="btn btn-default btn-success" id="regUserSubmitBtn"> SUBMIT </button>
+                        <button type="button" class="btn btn-default btn-success" id="regUserSubmitBtn"> Submit </button>
                     </div>
                 </div>
             </div>
@@ -62,11 +61,11 @@
         
         </div>
         <div class="chat-section">
-            <h1 class="text-center">Welcome to WebSocket Chat</h1>
+            <h1 class="text-center">Welcome to the Groupchat</h1>
             <div class="row">
                 <div class="col-md-3 col-md-offset-0" id="onlineUsersSection">
                     <div class="well">
-                        <label>Chat Users:</label>
+                        <label>Users Online:</label>
                         <ul id="users"></ul>
                     </div>
                 </div>
@@ -75,14 +74,14 @@
                     <div id="chats"></div>
 
                     <div class="well" id="typeMsgSection">
-                        <label for="Chats" class="peopleTyping">Type Message: </label>
+                        <label for="Chats" class="peopleTyping">Message: </label>
                     <br/>
                     <input type="text" placeholder="enter message" id="sentMessage" class="form-control"
                     onkeydown="if(event.keyCode == 13) {$('#hitSend').click();}"></input>
                     <br/>
                     
                     <div class="alert alert-danger" id="noMsgErr">
-                        <p>Empty Messages can't be sent!</p>
+                        <p>No blank messages.</p>
                     </div>
                     <br/>
 
@@ -91,10 +90,10 @@
                             <button class="btn btn-block btn-primary" id="hitSend">Send</button>
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-warning" id="clearChat">Clear Chat</button><br>
+                            <button class="btn btn-warning" id="clearChat">Clear</button><br>
                         </div>
                         <div class="col-md-10">
-                        <button class="btn btn-warning" id="clearUsers" style="margin:1em">Clear Users</button>
+                        <button class="btn btn-warning" id="clearUsers" style="margin:1em">Users Delete</button>
                         </div>
                     </div>
 
